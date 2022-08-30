@@ -10,6 +10,3 @@ class Teacher < Person
     true
   end
 end
-
-t1 = Teacher.new(21, true, 'jsc')
-p t1
