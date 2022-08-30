@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 require_relative './person'
 
 class Student < Person
-  def initialize( age, parent_permission, classroom ,name = 'Unknown')
-    super(age, parent_permission: parent_permission , name)
+  def initialize(age, parent_permission, classroom, name = 'Unknown')
+    super(age, name, parent_permission: parent_permission)
     @classroom = classroom
   end
 
@@ -12,6 +10,3 @@ class Student < Person
     puts "¯\(ツ)/¯"
   end
 end
-
-s1 = Student.new(21, true, 'ddcd')
-s1.play_hooky
