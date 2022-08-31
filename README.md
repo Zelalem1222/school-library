@@ -28,7 +28,7 @@ To get a local copy up and running follow these simple example steps.
 
 - Clone this repo locally using git in the command line and the following command
 
-<code>https://github.com/Zelalem1222/school-library.git</code>
+  > <code>https://github.com/Zelalem1222/school-library.git</code>
 
 ### Install
 
