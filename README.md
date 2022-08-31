@@ -27,9 +27,9 @@ To get a local copy up and running follow these simple example steps.
 ### Setup
 
 - Clone this repo locally using git in the command line and the following command
-
-  > <code>https://github.com/Zelalem1222/school-library.git</code>
-
+   ```bash
+  > https://github.com/Zelalem1222/school-library.git
+   ```
 ### Install
 
 -- Run this command on your terminal to install all the dependencies: bundle install
