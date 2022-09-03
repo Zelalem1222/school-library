@@ -112,7 +112,7 @@ class App
     name = gets.chomp.capitalize
     print 'Has parent permission? [Y/N]: '
     parent = gets.chomp.capitalize
-    person = Student.new(age, name, yes_no(parent), nil)
+    person = Student.new(age, name, yes_no(parent))
     @people.push(person)
   end
 
@@ -150,7 +150,7 @@ class App
 
     puts 'Rented Books:'
     @rentals.each do |rental|
-      if rental.person.id == id
+      if rental.id == id
         puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
 
       else
