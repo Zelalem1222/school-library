@@ -15,6 +15,4 @@ class App
     @books_class = BookLogic.new
     @rentals = RentalsLogic.new
   end
-
-  
 end

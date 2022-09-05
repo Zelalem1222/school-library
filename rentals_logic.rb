@@ -1,12 +1,10 @@
 require_relative './data_values'
 require_relative './rental'
 
-
-
 class RentalsLogic
-include Data
+  include Data
 
-attr_accessor :rentals , :books , :people
+  attr_accessor :rentals, :books, :people
 
   def initialize
     @rentals = Data.rentals

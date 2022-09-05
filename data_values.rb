@@ -11,7 +11,7 @@ module Data
     @peoples
   end
 
-  def  self.rentals
+  def self.rentals
     @rentals
   end
 end
