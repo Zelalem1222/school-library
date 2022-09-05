@@ -1,9 +1,12 @@
 module Data
-    
-    @books = []
+  @books = []
+  @peoples = []
 
-    def self.books
-        @books
-    end
+  def self.books
+    @books
+  end
 
+  def self.peoples
+    @peoples
+  end
 end
