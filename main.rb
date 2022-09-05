@@ -1,6 +1,6 @@
 require_relative './app'
 
-class App # rubocop:disable Metrics/ClassLength
+class App
   def options
     puts 'Please choose an option by enterin a number :'
     puts '1 - List all books'
@@ -12,8 +12,9 @@ class App # rubocop:disable Metrics/ClassLength
     puts "7 - Exit\n\n"
     gets.chomp
   end
+  # rubocop:disable Metrics/MethodLength
 
-  def run 
+  def run
     choose = options
     case choose
     when '1'
@@ -29,16 +30,18 @@ class App # rubocop:disable Metrics/ClassLength
       books_class.create_book
       exe
     when '5'
-      create_rental
+      rentals.create_rental
+      exe
     when '6'
-      list_all_rentals
+      rentals.list_all_rentals
+      exe
     else
       puts 'Thank You for using the app.'
       exit
     end
   end
 end
-# /* eslint-enable max-lines */
+# rubocop:enable Metrics/MethodLength
 
 def exe
   app = App.new
