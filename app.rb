@@ -41,7 +41,7 @@ class App
     when '6'
       list_all_rentals
     else
-        puts 'Thank You for using the app.'
+      puts 'Thank You for using the app.'
       exit
     end
   end
@@ -113,7 +113,7 @@ class App
     name = gets.chomp.capitalize
     print 'Has parent permission? [Y/N]: '
     parent = gets.chomp.capitalize
-    person = Student.new(age, name, yes_no(parent) , nil)
+    person = Student.new(age, name, yes_no(parent), nil)
     @people.push(person)
   end
 
