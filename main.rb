@@ -150,11 +150,10 @@ class Main
 
     puts 'Rented Books:'
     @rentals.each do |rental|
-      if rental.id == id
+      if rental.person.id == id
         puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
 
       else
-        puts
         puts 'No records where found for the given ID'
       end
     end
@@ -163,9 +162,9 @@ class Main
 end
 
 
-def main
-  app = Main.new
-  app.run
-end
+# def main
 
-main
+# end
+
+app = Main.new
+app.run
