@@ -16,10 +16,10 @@ class App
 
   def run
     choose = options
-    books_class.load_book_data
     case choose
-
+      
     when '1'
+      books_class.load_book_data
       books_class.list_all_books
       exe
     when '2'
