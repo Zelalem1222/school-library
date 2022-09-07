@@ -1,8 +1,8 @@
 require_relative './nameable'
 
 class Person < Nameable
-  def initialize(age, name = 'Unknown')
-    @id = Random.rand(1..1000)
+  def initialize(age, name = 'Unknown', id)
+    @id = id
     @name = name
     @age = age
     @rentals = []

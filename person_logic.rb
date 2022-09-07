@@ -62,8 +62,10 @@ class PersonLogic
     name = gets.chomp.capitalize
     print 'Has parent permission? [Y/N]: '
     gets.chomp
-    person = Student.new(age, name, nil)
-    @data_init.new_student(age, name)
+    print 'ID:  '
+    id = gets.chomp.to_i
+    person = Student.new(age, name, nil, id)
+    @data_init.new_student(age, name, id)
     @people.push(person)
   end
 
@@ -74,8 +76,10 @@ class PersonLogic
     name = gets.chomp.capitalize
     print 'Specialization: '
     specialization = gets.chomp.capitalize
-    teacher = Teacher.new(age, name, specialization)
-    @data_init.new_teacher(age, name, specialization)
+    print 'ID:  '
+    id = gets.chomp.to_i
+    teacher = Teacher.new(age, name, specialization, id)
+    @data_init.new_teacher(age, name, specialization, id)
     @people.push(teacher)
   end
 end

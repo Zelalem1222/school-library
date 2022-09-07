@@ -19,6 +19,7 @@ class RentalsLogic
     @data_init.book_restore
     @data_init.people_restore
     @data_init.rentals_init
+    @data_init.rentals_restore
     puts 'Select a number from the following books: '
     @books.each_with_index { |book, index| puts "#{index}- Title: \"#{book.title}\" , Author: #{book.author} " }
     book_no = gets.chomp.to_i
@@ -29,16 +30,27 @@ class RentalsLogic
     person_no = gets.chomp.to_i
     print 'Date (yy/mm/dd): '
     rental_date = gets.chomp
-    new_rental = Rental.new(rental_date, @books[book_no], @people[person_no])
-    @data_init.new_rental(rental_date, @books[book_no], @people[person_no])
+    new_rental = Rental.new(rental_date, @books[book_no], @people[person_no], @people[person_no].id)
+
+    rented_book = @books[book_no]
+    book = { 'title' => rented_book.title, 'author' => rented_book.author }
+
+    person_sel = @people[person_no]
+    person = { 'class' => person_sel.class, 'id' => person_sel.id, 'age' => person_sel.age, 'name' => person_sel.name }
+
+    @data_init.new_rental(rental_date, book, person)
+
     @rentals.push(new_rental)
     puts 'Rental added successfully!'
   end
 
   def list_all_rentals
+    @data_init.rentals_init
+    @data_init.book_restore
+    @data_init.people_restore
+    @data_init.rentals_restore
     print 'ID of person: '
     id = gets.chomp.to_i
-
     puts 'Rented Books:'
     @rentals.each do |rental|
       if rental.person.id == id

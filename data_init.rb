@@ -22,7 +22,7 @@ class DataInit
   def people_init
     File.exist?(@persons_path) ? people_restore : File.write(@persons_path, '[]')
   end
-  
+
   def rentals_init
     File.exist?(@rentals_path) ? rentals_restore : File.write(@rentals_path, '[]')
   end
@@ -45,9 +45,9 @@ class DataInit
     loaded_people = JSON.parse(file.read)
     loaded_people.each do |person|
       pd = if person['class'] == 'Student'
-             Student.new(person['age'], person['name'], nil)
+             Student.new(person['age'], person['name'], nil, person['id'])
            else
-             Teacher.new(person['age'], person['name'], person['specialization'])
+             Teacher.new(person['age'], person['name'], person['specialization'], person['id'])
            end
       @people.push(pd)
     end
@@ -59,7 +59,7 @@ class DataInit
     file = File.open(@rentals_path, 'r')
     loaded_rentals = JSON.parse(file.read)
     loaded_rentals.each do |rental|
-      rd = Rental.new(rental['date'], rental['book'], rental['person'])
+      rd = Rental.new(rental['date'], rental['book'], rental['person'], rental['id'])
       @rentals.push(rd)
     end
   end
@@ -71,27 +71,25 @@ class DataInit
     File.write(@books_path, loaded_books.to_json)
   end
 
-  def new_student(age, name)
+  def new_student(age, name, id)
     load_file = File.open(@persons_path, 'r')
     loaded_people = JSON.parse(load_file.read)
-    loaded_people << { 'class' => 'Student', 'age' => age, 'name' => name, 'classroom' => nil }
+    loaded_people << { 'class' => 'Student', 'age' => age, 'name' => name, 'classroom' => nil, 'id' => id }
     File.write(@persons_path, loaded_people.to_json)
   end
 
-  def new_teacher(age, name, specialization)
+  def new_teacher(age, name, specialization, id)
     load_file = File.open(@persons_path, 'r')
     loaded_people = JSON.parse(load_file.read)
-    loaded_people << { 'class' => 'Teacher', 'age' => age, 'name' => name, 'specialization' => specialization }
+    loaded_people << { 'class' => 'Teacher', 'age' => age, 'name' => name, 'specialization' => specialization,
+                       'id' => id }
     File.write(@persons_path, loaded_people.to_json)
   end
 
   def new_rental(date, book, person)
-    
     load_file = File.open(@rentals_path, 'r')
     loaded_rentals = JSON.parse(load_file.read)
-    loaded_rentals << { 'date' => date, 'book' => book, 'person' => person }
+    loaded_rentals << { 'date' => date, 'book' => book, 'person' => person, 'id' => person['id'] }
     File.write(@rentals_path, loaded_rentals.to_json)
-  
-end
-
+  end
 end

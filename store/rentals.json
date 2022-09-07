@@ -1,1 +1,27 @@
-[{"date":"2012/11/11","book":"#<Book:0x000001ef87f28eb0>","person":"#<Teacher:0x000001ef87f28848>"},{"date":"2112/11/11","book":"#<Book:0x0000027208560f28>","person":"#<Student:0x0000027208560a00>"}]
+[{
+    "date": "2000/02/21",
+    "book": {
+        "title": "Lord of rings",
+        "author": "Robert"
+    },
+    "person": {
+        "class": "Teacher",
+        "id": 101,
+        "age": "40",
+        "name": "Saul"
+    },
+    "id": 101
+}, {
+    "date": "2000/02/21",
+    "book": {
+        "title": "Lord of rings",
+        "author": "Robert"
+    },
+    "person": {
+        "class": "Teacher",
+        "id": 101,
+        "age": "40",
+        "name": "Saul"
+    },
+    "id": 101
+}]
