@@ -15,6 +15,7 @@ class RentalsLogic
     @data_init = DataInit.new
   end
 
+  # rubocop:disable Metrics/MethodLength
   def create_rental
     @data_init.book_restore
     @data_init.people_restore
@@ -44,6 +45,7 @@ class RentalsLogic
     puts 'Rental added successfully!'
   end
 
+  # rubocop:enable Metrics/MethodLength
   def list_all_rentals
     @data_init.rentals_init
     @data_init.book_restore
@@ -51,14 +53,13 @@ class RentalsLogic
     @data_init.rentals_restore
     print 'ID of person: '
     id = gets.chomp.to_i
-    puts 'Rented Books:'
+    puts 'Rented Books: '
     @rentals.each do |rental|
-      if rental.person.id == id
-        puts "Person: #{rental.person.name} Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
+      next unless rental.person['id'] == id
 
-      else
-        puts 'No records where found for the given ID'
-      end
+      # rubocop:disable Layout/LineLength
+      puts "Person: #{rental.person['name']} Date: #{rental.date}, Book: '#{rental.book['title']}' by #{rental.book['author']}"
+      # rubocop:enable Layout/LineLength
     end
   end
 end

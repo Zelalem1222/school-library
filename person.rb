@@ -1,7 +1,7 @@
 require_relative './nameable'
 
 class Person < Nameable
-  def initialize(age, name = 'Unknown', id)
+  def initialize(age, name, id)
     @id = id
     @name = name
     @age = age
