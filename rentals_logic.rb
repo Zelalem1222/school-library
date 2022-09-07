@@ -1,5 +1,7 @@
 require_relative './data_values'
 require_relative './rental'
+require_relative './data_init'
+require 'json'
 
 class RentalsLogic
   include Data
@@ -10,9 +12,13 @@ class RentalsLogic
     @rentals = Data.rentals
     @books = Data.books
     @people = Data.peoples
+    @data_init = DataInit.new
   end
 
   def create_rental
+    @data_init.book_restore
+    @data_init.people_restore
+    @data_init.rentals_init
     puts 'Select a number from the following books: '
     @books.each_with_index { |book, index| puts "#{index}- Title: \"#{book.title}\" , Author: #{book.author} " }
     book_no = gets.chomp.to_i
@@ -24,6 +30,7 @@ class RentalsLogic
     print 'Date (yy/mm/dd): '
     rental_date = gets.chomp
     new_rental = Rental.new(rental_date, @books[book_no], @people[person_no])
+    @data_init.new_rental(rental_date, @books[book_no], @people[person_no])
     @rentals.push(new_rental)
     puts 'Rental added successfully!'
   end
