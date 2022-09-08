@@ -1,9 +1,9 @@
-require './student'
+require_relative '../student'
 
 describe Student do
 
     before(:each) do
-        @student = Student.new(12, "Kevin", "Class 1", 1)
+        @student = Student.new(19, "Kevin", "Class 1", 1)
     end
 
         it "takes the parameters and returns a Student object" do
@@ -11,7 +11,7 @@ describe Student do
         end
 
         it "returns the correct age" do
-            expect(@student.age).to eq 12
+            expect(@student.age).to eq 19
         end
 
         it "returns the correct name" do
@@ -28,5 +28,17 @@ describe Student do
 
         it "return the correct class" do
             expect((@student.class).to_s).to eq 'Student'
+        end
+
+        it "returns the correct number of rentals" do
+            expect(@student.rentals).to eq []
+        end
+
+        it "returns the correct name" do
+            expect(@student.correct_name).to eq "Kevin"
+        end
+
+        it "returns false if the student is not of age" do
+            expect(@student.can_use_services?).to eq true
         end
 end
